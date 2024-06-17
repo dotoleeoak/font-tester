@@ -1,0 +1,277 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2024-1 타입과 미디어</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <script>
+      const fonts = [
+        {
+          name: "AvatarAcrossing",
+          file: "AvatarAcrossing.otf",
+          creator: "윤하은",
+        },
+        {
+          name: "Jobu",
+          file: "Jobu.otf",
+          creator: "최은율",
+        },
+        {
+          name: "PUSH THE CENTURY REAL FINAL",
+          file: "PUSH THE CENTURY REAL FINAL.otf",
+          creator: "민경휘",
+        },
+        {
+          name: "TheMorgan",
+          file: "TheMorgan/TheMorgan_ver4.otf",
+          creator: "김재원",
+        },
+        {
+          name: "CarnivalScript",
+          file: "CarnivalScript.otf",
+          creator: "전소은",
+        },
+        {
+          name: "Lazygentleman",
+          file: "Lazygentleman.otf",
+          creator: "윤하은",
+        },
+        {
+          name: "Paramix",
+          file: "Paramix.otf",
+          creator: "손채은",
+        },
+        {
+          name: "ToussaintBlack",
+          file: "ToussaintBlack_ver6.otf",
+          creator: "김재원",
+        },
+        {
+          name: "CheddarGARrk",
+          file: "CheddarGARrk_.otf",
+          creator: "류정안",
+        },
+        {
+          name: "MALWARE",
+          file: "MALWARE.otf",
+          creator: "류정안",
+        },
+        {
+          name: "Paranoia",
+          file: "Paranoia.otf",
+          creator: "임종훈",
+        },
+        {
+          name: "Transference",
+          file: "Transference.otf",
+          creator: "오서연",
+        },
+        {
+          name: "ComixturaCode",
+          file: "ComixturaCode-Regular.otf",
+          creator: "정솔미",
+        },
+        {
+          name: "ModernBlack",
+          file: "ModernBlack.otf",
+          creator: "임종훈",
+        },
+        {
+          name: "REBTSans",
+          file: "REBTSans.otf",
+          creator: "전소은",
+        },
+        {
+          name: "Wormy",
+          file: "Wormy.otf",
+          creator: "이수연",
+        },
+        {
+          name: "DAVYJONES",
+          file: "DAVYJONES.otf",
+          creator: "박준표",
+        },
+        {
+          name: "Moroque-Blackletter",
+          file: "Moroque-Blackletter_13.otf",
+          creator: "김서현",
+        },
+        {
+          name: "Reill",
+          file: "Reill/Reill.otf",
+          creator: "이수연",
+        },
+        {
+          name: "Yolk",
+          file: "Yolk.otf",
+          creator: "유승민",
+        },
+        {
+          name: "FragmentoGothic",
+          file: "FragmentoGothic/FragmentoGothic.otf",
+          creator: "김강휘",
+        },
+        {
+          name: "NovaClassico",
+          file: "NovaClassico.otf",
+          creator: "오서연",
+        },
+        {
+          name: "Silhouette Script",
+          file: "Silhouette Script-regular-1.otf",
+          creator: "박준표",
+        },
+        {
+          name: "Zankey",
+          file: "Zankey.otf",
+          creator: "최은율",
+        },
+        {
+          name: "HardBoiledV3",
+          file: "HardBoiledV3.otf",
+          creator: "김강휘",
+        },
+        {
+          name: "ONE",
+          file: "ONE04.otf",
+          creator: "유승민",
+        },
+        {
+          name: "StarrySans",
+          file: "StarrySans.otf",
+          creator: "김민경",
+        },
+        {
+          name: "drphong",
+          file: "drphong_0611VF.ttf",
+          creator: "정솔미",
+        },
+        {
+          name: "JOLYNE",
+          file: "JOLYNE.otf",
+          creator: "김서현",
+        },
+        {
+          name: "Off-nular",
+          file: "Off-nular-Bold.otf",
+          creator: "손채은",
+        },
+        {
+          name: "TernarySans",
+          file: "TernarySans.otf",
+          creator: "김민경",
+        },
+      ];
+
+      const load = () => {
+        const fontList = document.querySelector(".font-list");
+        fonts.forEach(({ name, file, creator }) => {
+          const fontItem = document.createElement("li");
+          fontItem.classList.add("font-item");
+          fontItem.innerText = name;
+          fontItem.addEventListener("click", () =>
+            updateMain(name, file, creator)
+          );
+          fontList.appendChild(fontItem);
+        });
+        updateMain(fonts[0].name, fonts[0].file, fonts[0].creator);
+      };
+
+      const updateMain = async (name, file, creator) => {
+        const header = document.querySelector("h1");
+        header.innerText = name;
+        const creatorElement = document.querySelector(".creator");
+        creatorElement.innerText = creator;
+
+        const font = new FontFace(name, `url(fonts/${file})`);
+        document.fonts.add(font);
+        await font.load();
+        const textarea = document.querySelector("textarea");
+        console.log(textarea);
+        textarea.style.fontFamily = name;
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        background-color: white;
+        font-family: "Pretendard Variable", Pretendard, -apple-system,
+          BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      }
+      .sidebar {
+        background-color: #fafafa;
+        overflow: scroll;
+        width: 16rem;
+      }
+      .font-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        margin: 0;
+        padding: 1rem;
+      }
+      .font-item {
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.125rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        transition-property: color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .font-item:hover {
+        color: #2563eb;
+        cursor: pointer;
+      }
+      main {
+        flex-grow: 1;
+        padding: 2.5rem;
+      }
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+      .creator {
+        margin: 0;
+      }
+      textarea {
+        border-color: #172554;
+        resize: none;
+        width: 100%;
+        height: 24rem;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin-top: 2rem;
+      }
+      textarea:active {
+        border-color: #172554;
+      }
+    </style>
+  </head>
+  <body onload="load()">
+    <aside class="sidebar">
+      <ul class="font-list"></ul>
+    </aside>
+    <main>
+      <h1>Pretendard</h1>
+      <div class="creator">길형진</div>
+      <textarea name="tester" style="font-family: 'Pretendard Variable'">
+The quick brown fox jumps over the lazy dog</textarea
+      >
+    </main>
+  </body>
+</html>
