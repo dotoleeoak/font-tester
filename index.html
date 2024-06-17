@@ -186,7 +186,7 @@
         const header = document.querySelector("h1");
         header.innerText = name;
         const creatorElement = document.querySelector(".creator");
-        creatorElement.innerText = creator;
+        creatorElement.innerText = "디자인. " + creator;
 
         const font = new FontFace(name, `url(fonts/${file})`);
         document.fonts.add(font);
@@ -268,7 +268,7 @@
     </aside>
     <main>
       <h1>Pretendard</h1>
-      <div class="creator">길형진</div>
+      <div class="creator">디자인. 길형진</div>
       <textarea name="tester" style="font-family: 'Pretendard Variable'">
 The quick brown fox jumps over the lazy dog</textarea
       >
